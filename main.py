@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import sqlite3
 import plotly.graph_objects as go
 from datetime import date, timedelta
@@ -45,7 +46,7 @@ def rolling_avg(df, window=7):
 
 def objectif_line(start_date, end_date, start_weight, end_weight):
     dates = pd.date_range(start_date, end_date)
-    poids = pd.Series(pd.np.linspace(start_weight, end_weight, len(dates)))
+    poids = pd.Series(np.linspace(start_weight, end_weight, len(dates)))
     return pd.DataFrame({"date": dates, "objectif": poids})
 
 # --- Interface Streamlit ---
